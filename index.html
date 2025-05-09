@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robotics Team Resources</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, #3498db, #2ecc71);
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .search-bar {
+      display: flex;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    .search-btn {
+      padding: 0.8rem 1.5rem;
+      background: #3498db;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      transition: background-color 0.3s;
+    }
+
+    .search-btn:hover {
+      background: #2980b9;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .resource-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .resource-item {
+      background: white;
+      border-left: 5px solid #3498db;
+      padding: 1rem;
+      width: 300px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-item h4 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    .resource-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .resource-item:hover {
+      transform: translateY(-5px);
+      background: #f0faff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome Team!</h1>
+    <p>This is our robotics team hub where you can find all resources, project details, schedules, and more. We're excited to build amazing robots using LEGO Spike Prime and Arduino kits!</p>
+  </header>
+
+  <div class="search-container">
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search for resources, projects, etc.">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-title">Resources</h2>
+    <div class="resource-items" id="resource-list">
+      <div class="resource-item">
+        <h4>LEGO Spike Prime Basics</h4>
+        <p>Getting started with Spike Prime</p>
+      </div>
+      <div class="resource-item">
+        <h4>Arduino for Beginners</h4>
+        <p>Intro guide for Arduino circuits</p>
+      </div>
+      <div class="resource-item">
+        <h4>Programming Concepts</h4>
+        <p>Core concepts for kids in robotics</p>
+      </div>
+      <div class="resource-item">
+        <h4>Sensors Guide</h4>
+        <p>Working with different sensors</p>
+      </div>
+      <div class="resource-item">
+        <h4>Project Rubric</h4>
+        <p>Evaluation criteria for final projects</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const searchBtn = document.querySelector('.search-btn');
+    const searchInput = document.querySelector('.search-input');
+    const resourceItems = document.querySelectorAll('.resource-item');
+
+    function filterResources() {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      let matchCount = 0;
+      resourceItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const isMatch = text.includes(searchTerm);
+        item.style.display = isMatch ? 'flex' : 'none';
+        if (isMatch) matchCount++;
+      });
+
+      if (matchCount === 0) {
+        if (!document.getElementById('no-match')) {
+          const noMatch = document.createElement('div');
+          noMatch.id = 'no-match';
+          noMatch.textContent = 'No resources matched your search.';
+          noMatch.style.textAlign = 'center';
+          noMatch.style.marginTop = '1rem';
+          noMatch.style.color = '#888';
+          document.getElementById('resource-list').appendChild(noMatch);
+        }
+      } else {
+        const existing = document.getElementById('no-match');
+        if (existing) existing.remove();
+      }
+    }
+
+    searchBtn.addEventListener('click', filterResources);
+    searchInput.addEventListener('input', filterResources);
+  </script>
+</body>
+</html>
