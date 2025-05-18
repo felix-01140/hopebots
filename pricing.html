@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Alelabs - Service Pricing</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .pricing-item {
+            transition: all 0.3s;
+        }
+        .pricing-item:hover {
+            transform: translateY(-10px);
+        }
+        .modal-dialog {
+            max-width: 600px;
+        }
+        .service-feature {
+            margin: 10px 0;
+        }
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .price-period {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light d-none d-lg-block">
+        <div class="row align-items-center top-bar">
+            <div class="col-lg-3 col-md-12 text-center text-lg-start">
+                <a href="" class="navbar-brand m-0 p-0">
+                    <h1 class="text-primary m-0">Alelabs.tech</h1>
+                </a>
+            </div>
+            <div class="col-lg-9 col-md-12 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                    <p class="m-0">Gisozi, Gasabo, RWANDA</p>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="far fa-envelope-open text-primary me-2"></i>
+                    <p class="m-0">alelabsservices@gmail.com</p>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a target="_blank" class="btn btn-sm-square bg-white text-primary me-1" href="https://x.com/alelabstech"><i class="fab fa-twitter"></i></a>
+                    <a target="blank" class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/alelabs.tech/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
+            <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+                <h1 class="text-primary m-0">Alelabs.tech</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav me-auto">
+                    <a href="index.html" class="nav-item nav-link">Vision</a>
+                    <a href="about.html" class="nav-item nav-link">Our Mission</a>
+                    <a href="service.html" class="nav-item nav-link">Solutions</a>
+                    <a href="pricing.html" class="nav-item nav-link active">Pricing</a>
+                    <a href="team.html" class="nav-item nav-link">Meet the Experts</a>
+                    <a href="testimonial.html" class="nav-item nav-link">Stories</a>
+                    <a href="booking.html" class="nav-item nav-link">Schedule</a>
+                    <a href="contact.html" class="nav-item nav-link">Reach out </a>
+                </div>
+                <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
+                        <i class="fa fa-phone-alt text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <p class="mb-1 text-white">Emergency 24/7</p>
+                        <h5 class="m-0 text-secondary">+250 788 612171</h5>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Pricing Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">Pricing Plans</h6>
+                <h1 class="mb-5">Choose Your Perfect Plan</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Basic Package -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="pricing-item bg-light rounded">
+                        <div class="bg-primary rounded-top p-4">
+                            <h4 class="text-white">Basic Package</h4>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-center mb-4">
+                                <span class="price-tag">$299</span>
+                                <span class="price-period">/project</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Basic CCTV Installation
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>2 HD Cameras
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Basic Network Setup
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>24/7 Support
+                            </div>
+                            <button class="btn btn-primary w-100 mt-4" data-bs-toggle="modal" data-bs-target="#bookingModal" data-package="Basic">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Standard Package -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="pricing-item bg-light rounded">
+                        <div class="bg-primary rounded-top p-4">
+                            <h4 class="text-white">Standard Package</h4>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-center mb-4">
+                                <span class="price-tag">$599</span>
+                                <span class="price-period">/project</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Advanced CCTV System
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>4 HD Cameras
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Full Network Setup
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Remote Access
+                            </div>
+                            <button class="btn btn-primary w-100 mt-4" data-bs-toggle="modal" data-bs-target="#bookingModal" data-package="Standard">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Premium Package -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="pricing-item bg-light rounded">
+                        <div class="bg-primary rounded-top p-4">
+                            <h4 class="text-white">Premium Package</h4>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-center mb-4">
+                                <span class="price-tag">$999</span>
+                                <span class="price-period">/project</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Premium CCTV System
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>8 HD Cameras
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>Advanced Network Setup
+                            </div>
+                            <div class="service-feature">
+                                <i class="fa fa-check text-primary me-2"></i>24/7 Monitoring
+                            </div>
+                            <button class="btn btn-primary w-100 mt-4" data-bs-toggle="modal" data-bs-target="#bookingModal" data-package="Premium">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pricing End -->
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="bookingModalLabel">Book Your Service</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="service-booking-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="package" class="form-label">Selected Package</label>
+                            <input type="text" class="form-control" id="package" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Additional Requirements</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Gisozi Gasabo, Kigali, RWANDA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+250 788 612171</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>alelabsservices@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Opening Hours</h4>
+                    <h6 class="text-light">Monday - Thursday:</h6>
+                    <p class="mb-4">5.00 PM - 09.00 PM</p>
+                    <h6 class="text-light">Friday:</h6>
+                    <p class="mb-4">7.00 PM - 09.00 PM</p>
+                    <h6 class="text-light">Saturday - Sunday:</h6>
+                    <p class="mb-0">3.00 PM - 9.00 PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="">CCTV cameras</a>
+                    <a class="btn btn-link" href="">Internet connectivity</a>
+                    <a class="btn btn-link" href="">Computer labs</a>
+                    <a class="btn btn-link" href="">Computer labs mentainance</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Stay updated with our new letter.</p>
+                    <form id="footer-newsletter-form">
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input id="footer-newsletter-email" class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>
+                            <button id="footer-newsletter-submit" type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Alelabs | Networking solutions anywhere & anytime.</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a class="border-bottom" href="#">Alelabs.tech team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Pricing Page Javascript -->
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("aTplpx662MEXiSJE5");
+        })();
+
+        // Handle modal package selection
+        $('#bookingModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var package = button.data('package');
+            var modal = $(this);
+            modal.find('#package').val(package + ' Package');
+        });
+
+        // Handle form submission
+        document.getElementById('service-booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            const templateParams = {
+                to_email: document.getElementById('email').value,
+                to_name: document.getElementById('name').value,
+                subject: 'Service Booking Confirmation',
+                message: `Thank you for booking our ${document.getElementById('package').value}!\n\n` +
+                        `Booking Details:\n` +
+                        `Name: ${document.getElementById('name').value}\n` +
+                        `Phone: ${document.getElementById('phone').value}\n` +
+                        `Date: ${document.getElementById('date').value}\n` +
+                        `Additional Requirements: ${document.getElementById('message').value}\n\n` +
+                        `We will contact you shortly to confirm your booking.`,
+                type: 'booking_confirmation'
+            };
+
+            const adminParams = {
+                to_email: 'alelabsservices@gmail.com',
+                subject: 'New Service Booking',
+                message: `New booking received:\n\n` +
+                        `Package: ${document.getElementById('package').value}\n` +
+                        `Name: ${document.getElementById('name').value}\n` +
+                        `Email: ${document.getElementById('email').value}\n` +
+                        `Phone: ${document.getElementById('phone').value}\n` +
+                        `Date: ${document.getElementById('date').value}\n` +
+                        `Additional Requirements: ${document.getElementById('message').value}`,
+                type: 'admin_notification'
+            };
+
+            Promise.all([
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', templateParams),
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', adminParams)
+            ])
+                .then(function(responses) {
+                    alert('Booking submitted successfully! We will contact you shortly.');
+                    $('#bookingModal').modal('hide');
+                    document.getElementById('service-booking-form').reset();
+                })
+                .catch(function(error) {
+                    alert('Sorry, there was an error. Please try again later.');
+                    console.error('Error:', error);
+                })
+                .finally(function() {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Confirm Booking';
+                });
+        });
+    </script>
+</body>
+</html> 
