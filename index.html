@@ -323,38 +323,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="bg-light text-center p-5">
-                        <h1 class="mb-4">Book For A Service</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">CCTV installations</option>
-                                        <option value="2">Internet connectivity</option>
-                                        <option value="3">Computer lab</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text"
-                                            class="form-control border-0 datetimepicker-input"
-                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder="Special Request"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                                </div>
-                            </div>
-                        </form>
+                                                <h1 class="mb-4">Book For A Service</h1>                        <form id="booking-form">                            <div class="row g-3">                                <div class="col-12 col-sm-6">                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>                                </div>                                <div class="col-12 col-sm-6">                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>                                </div>                                <div class="col-12 col-sm-6">                                    <select class="form-select border-0" style="height: 55px;" required>                                        <option value="">Select A Service</option>                                        <option value="CCTV installations">CCTV installations</option>                                        <option value="Internet connectivity">Internet connectivity</option>                                        <option value="Computer lab">Computer lab</option>                                    </select>                                </div>                                <div class="col-12 col-sm-6">                                    <div class="date" id="date1" data-target-input="nearest">                                        <input type="text"                                            class="form-control border-0 datetimepicker-input"                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;" required>                                    </div>                                </div>                                <div class="col-12">                                    <textarea class="form-control border-0" placeholder="Special Request" required></textarea>                                </div>                                <div class="col-12">                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>                                </div>                            </div>                        </form>
                     </div>
                 </div>
             </div>
@@ -473,12 +442,7 @@
                     <!-- <a class="btn btn-link" href="">Broken Pipe</a> -->
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Stay updated with our new letter.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
+                                        <h4 class="text-light mb-4">Newsletter</h4>                    <p>Stay updated with our new letter.</p>                    <form id="newsletter-form">                        <div class="position-relative mx-auto" style="max-width: 400px;">                            <input id="newsletter-email" class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>                            <button id="newsletter-submit" type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>                        </div>                    </form>
                 </div>
             </div>
         </div>
@@ -515,8 +479,4 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+        <!-- Template Javascript -->    <script src="js/main.js"></script>    <!-- EmailJS Library -->    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>        <!-- Newsletter Javascript -->    <script src="js/newsletter.js"></script></body></html>
