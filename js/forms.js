@@ -15,16 +15,34 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
-            const templateParams = {
-                from_name: contactForm.querySelector('#name').value,
-                from_email: contactForm.querySelector('#email').value,
-                subject: contactForm.querySelector('#subject').value,
-                message: contactForm.querySelector('#message').value,
+            const name = contactForm.querySelector('#name').value;
+            const email = contactForm.querySelector('#email').value;
+            const subject = contactForm.querySelector('#subject').value;
+            const message = contactForm.querySelector('#message').value;
+
+            // Send notification to admin
+            const adminTemplateParams = {
+                to_email: 'alelabsservices@gmail.com',
+                subject: 'New Contact Form Submission',
+                message: `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+                type: 'admin_notification'
             };
 
-            emailjs.send('service_l32v4u9', 'template_kruo6lo', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
+            // Send confirmation to user
+            const userTemplateParams = {
+                to_email: email,
+                to_name: name,
+                subject: 'Thank you for contacting Alelabs',
+                message: 'We have received your message and will get back to you shortly.',
+                type: 'user_confirmation'
+            };
+
+            Promise.all([
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', adminTemplateParams),
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', userTemplateParams)
+            ])
+                .then(function(responses) {
+                    console.log('SUCCESS!', responses);
                     alert('Thank you for your message! We will get back to you soon.');
                     contactForm.reset();
                 })
@@ -49,18 +67,35 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
-            const templateParams = {
-                from_name: bookingForm.querySelector('input[placeholder="Your Name"]').value,
-                from_email: bookingForm.querySelector('input[placeholder="Your Email"]').value,
-                service: bookingForm.querySelector('select').value,
-                date: bookingForm.querySelector('input[placeholder="Service Date"]').value,
-                special_request: bookingForm.querySelector('textarea').value,
-                type: 'Booking Request'
+            const name = bookingForm.querySelector('input[placeholder="Your Name"]').value;
+            const email = bookingForm.querySelector('input[placeholder="Your Email"]').value;
+            const service = bookingForm.querySelector('select').value;
+            const date = bookingForm.querySelector('input[placeholder="Service Date"]').value;
+            const special_request = bookingForm.querySelector('textarea').value;
+
+            // Send notification to admin
+            const adminTemplateParams = {
+                to_email: 'alelabsservices@gmail.com',
+                subject: 'New Booking Request',
+                message: `New booking request:\n\nName: ${name}\nEmail: ${email}\nService: ${service}\nDate: ${date}\nSpecial Request: ${special_request}`,
+                type: 'admin_notification'
             };
 
-            emailjs.send('service_l32v4u9', 'template_kruo6lo', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
+            // Send confirmation to user
+            const userTemplateParams = {
+                to_email: email,
+                to_name: name,
+                subject: 'Your Booking Request - Alelabs',
+                message: `Thank you for booking with Alelabs!\n\nWe have received your request for ${service} on ${date}. We will confirm your appointment shortly.`,
+                type: 'user_confirmation'
+            };
+
+            Promise.all([
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', adminTemplateParams),
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', userTemplateParams)
+            ])
+                .then(function(responses) {
+                    console.log('SUCCESS!', responses);
                     alert('Thank you for your booking request! We will confirm your appointment soon.');
                     bookingForm.reset();
                 })
@@ -75,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Newsletter form handler (keeping the existing implementation)
+    // Newsletter form handler
     const newsletterForm = document.querySelector('#newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
@@ -86,15 +121,32 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
 
-            const templateParams = {
-                to_email: emailInput.value,
-                to_name: emailInput.value.split('@')[0],
-                message: 'Thank you for subscribing to our newsletter!'
+            const email = emailInput.value;
+            const name = email.split('@')[0];
+
+            // Send welcome email to subscriber
+            const welcomeTemplateParams = {
+                to_email: email,
+                to_name: name,
+                subject: 'Welcome to Alelabs Newsletter',
+                message: `Hi ${name},\n\nWelcome aboard!\nWe're excited to have you as part of the Alelabs community.\n\nStay tuned for updates, insights, and exclusive content delivered straight to your inbox.\n\nBest regards,\nThe Alelabs Team`,
+                type: 'welcome_email'
             };
 
-            emailjs.send('service_l32v4u9', 'template_kruo6lo', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
+            // Send notification to admin
+            const adminTemplateParams = {
+                to_email: 'alelabsservices@gmail.com',
+                subject: 'New Newsletter Subscription',
+                message: `New newsletter subscription from: ${email}`,
+                type: 'admin_notification'
+            };
+
+            Promise.all([
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', welcomeTemplateParams),
+                emailjs.send('service_l32v4u9', 'template_kruo6lo', adminTemplateParams)
+            ])
+                .then(function(responses) {
+                    console.log('SUCCESS!', responses);
                     alert('Thank you for subscribing to our newsletter!');
                     emailInput.value = '';
                 })
