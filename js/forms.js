@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Send notification to admin
             const adminTemplateParams = {
-                to_email: 'alelabsservices@gmail.com',
+                to_email: 'customers@alelabs.tech',
                 email: email,
                 subject: 'New Contact Form Submission',
                 message: `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nService: ${service}\nDate: ${date}\nMessage: ${message}`,
@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Send notification to admin
             const adminTemplateParams = {
-                to_email: 'alelabsservices@gmail.com',
+                to_email: 'customers@alelabs.tech',
                 email: email,
-                subject: 'New Booking Request',
+                subject: 'New Service Booking',
                 message: `New booking request:\n\nName: ${name}\nEmail: ${email}\nService: ${service}\nDate: ${date}\nSpecial Request: ${special_request}`,
                 type: 'admin_notification'
             };
