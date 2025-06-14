@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Sitemap: https://alelabs.tech/sitemap.xml
+
+# Allow all bots to access all content
+Disallow: /js/
+Disallow: /lib/
+Disallow: /css/
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 10 
