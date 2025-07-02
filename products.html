@@ -8,11 +8,14 @@
     <meta content="Alelabs Tech provides professional IT solutions including CCTV installation, network setup, and computer lab services in Kigali, Rwanda. 24/7 support available." name="description">
     <meta name="author" content="Alelabs Tech">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Alelabs - Professional IT & Network Solutions in Kigali">
-    <meta property="og:description" content="Expert CCTV installation, network solutions, and computer lab setup services in Kigali, Rwanda. Available 24/7.">
-    <meta property="og:image" content="img/cctvbg.jpg">
-    <meta property="og:url" content="https://alelabs.tech">
+    <meta property="og:title" content="Alelabs - Shop Products">
+    <meta property="og:description" content="Shop for IT products: switches, routers, cables, access points, and more at Alelabs.">
+    <meta property="og:image" content="img/logo.jpg">
+    <meta property="og:url" content="https://alelabs.tech/products.html">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alelabs - Shop Products">
+    <meta name="twitter:description" content="Shop for IT products: switches, routers, cables, access points, and more at Alelabs.">
+    <meta name="twitter:image" content="img/logo.jpg">
     <link href="img/logo.jpg" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,6 +31,26 @@
       object-fit: contain;
       width: 100%;
       background: #f8f9fa;
+    }
+    @media (max-width: 767.98px) {
+      .product-img-fixed {
+        height: 120px;
+      }
+      #whatsapp-support-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .product-img-fixed {
+        height: 90px;
+      }
+      .product-card {
+        margin-bottom: 1.5rem !important;
+      }
     }
     </style>
 </head>
@@ -98,6 +121,18 @@
     <!-- Main Content: Shop -->
     <div class="container py-5">
         <h1 class="text-center mb-3 text-primary">Shop Products</h1>
+        <div class="row mb-3">
+            <div class="col-md-8 offset-md-2 text-center">
+                <div id="category-filters" class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary active" data-category="All">All</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Routers">Routers</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Cables">Cables</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Switches">Switches</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Access Points">Access Points</button>
+                    <button type="button" class="btn btn-outline-primary" data-category="Modules">Modules</button>
+                </div>
+            </div>
+        </div>
         <div class="row mb-4">
             <div class="col-md-6 offset-md-3">
                 <input type="text" id="product-search" class="form-control" placeholder="Search products...">
@@ -106,6 +141,20 @@
         <div class="row" id="product-list">
             <!-- Products will be injected by JS -->
         </div>
+    </div>
+    <!-- Product Details Modal -->
+    <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productDetailsModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <img id="productDetailsImg" src="" alt="" style="max-width:100%;max-height:300px;object-fit:contain;">
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Checkout Modal -->
     <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -121,6 +170,7 @@
                 <h4 class="mb-3">Your Basket</h4>
                 <div id="basket-items"></div>
                 <div id="basket-total" class="fw-bold mt-3"></div>
+                <button class="btn btn-outline-danger mt-3" id="clear-cart-btn" type="button">Clear Cart</button>
               </div>
             </div>
             <div class="card shadow-sm">
@@ -143,6 +193,20 @@
                 </form>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Thank You Modal -->
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="thankYouModalLabel">Thank You!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <p>Your order has been sent via WhatsApp.<br>We will contact you soon.</p>
           </div>
         </div>
       </div>
@@ -211,39 +275,73 @@
     <script>
     // Example product data generated from img/products folder
     const products = [
-        {id: 1, name: 'CAB-CAT6UTP-1M - 1M Patch Cable', price: 400, img: 'img/products/CAB-CAT6UTP-1M - 1M Patch Cable.png'},
-        {id: 2, name: 'CAT6-RJ45-UTP RJ45 Connector 100-pack', price: 8500, img: 'img/products/CAT6-RJ45-UTP RJ45 Connector 100-pack.jpg'},
-        {id: 3, name: 'SFP-SM-1G - 1G SFP Module 1310nm', price: 3000, img: 'img/products/SFP-SM-1G - 1G SFP Module 1310nm.png'},
-        {id: 4, name: 'AIR-R3000AX - Wi-Fi 6 Cloud Router', price: 35000, img: 'img/products/AIR-R3000AX - Wi-Fi 6 Cloud Router.png'},
-        {id: 5, name: 'AIR-APO1200-Outdoor Dual-Band Access Point', price: 30000, img: 'img/products/AIR-APO1200-Outdoor Dual-Band Access Point.jpeg'},
-        {id: 6, name: 'AIR-AP1800AX - AX Wi-Fi 6 Access Point', price: 35000, img: 'img/products/AIR-AP1800AX - AX Wi-Fi 6 Access Point.jpg'},
-        {id: 7, name: 'E2000-24GP+8CF - 24GE Full PoE+ Switch', price: 450000, img: 'img/products/E2000-24GP+8CF - 24GE Full PoE+ Switch.jpg'},
-        {id: 8, name: 'E1000-24P+4CF - 24FE Full PoE Switch', price: 50000, img: 'img/products/E1000-24P+4CF - 24FE Full PoE Switch.jpg'},
-        {id: 9, name: 'E300-8GP+2SFP 8GE Full PoE+ Switch', price: 15000, img: 'img/products/E300-8GP+2SFP 8GE Full PoE+ Switch.jpg'}
+        {id: 1, name: 'CAB-CAT6UTP-1M - 1M Patch Cable', price: 400, img: 'img/products/CAB-CAT6UTP-1M - 1M Patch Cable.png', category: 'Cables'},
+        {id: 2, name: 'CAT6-RJ45-UTP RJ45 Connector 100-pack', price: 8500, img: 'img/products/CAT6-RJ45-UTP RJ45 Connector 100-pack.jpg', category: 'Cables'},
+        {id: 3, name: 'SFP-SM-1G - 1G SFP Module 1310nm', price: 3000, img: 'img/products/SFP-SM-1G - 1G SFP Module 1310nm.png', category: 'Modules'},
+        {id: 4, name: 'AIR-R3000AX - Wi-Fi 6 Cloud Router', price: 35000, img: 'img/products/AIR-R3000AX - Wi-Fi 6 Cloud Router.png', category: 'Routers'},
+        {id: 5, name: 'AIR-APO1200-Outdoor Dual-Band Access Point', price: 30000, img: 'img/products/AIR-APO1200-Outdoor Dual-Band Access Point.jpeg', category: 'Access Points'},
+        {id: 6, name: 'AIR-AP1800AX - AX Wi-Fi 6 Access Point', price: 35000, img: 'img/products/AIR-AP1800AX - AX Wi-Fi 6 Access Point.jpg', category: 'Access Points'},
+        {id: 7, name: 'E2000-24GP+8CF - 24GE Full PoE+ Switch', price: 450000, img: 'img/products/E2000-24GP+8CF - 24GE Full PoE+ Switch.jpg', category: 'Switches'},
+        {id: 8, name: 'E1000-24P+4CF - 24FE Full PoE Switch', price: 50000, img: 'img/products/E1000-24P+4CF - 24FE Full PoE Switch.jpg', category: 'Switches'},
+        {id: 9, name: 'E300-8GP+2SFP 8GE Full PoE+ Switch', price: 15000, img: 'img/products/E300-8GP+2SFP 8GE Full PoE+ Switch.jpg', category: 'Switches'}
     ];
+    let currentCategory = 'All';
+    let currentSearch = '';
     function renderProducts(filter = "") {
         const list = document.getElementById('product-list');
-        const filtered = filter
-            ? products.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()))
-            : products;
+        let filtered = products;
+        if (currentCategory !== 'All') {
+            filtered = filtered.filter(p => p.category === currentCategory);
+        }
+        if (filter) {
+            filtered = filtered.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()));
+        }
         list.innerHTML = filtered.length ? filtered.map(p => `
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="card h-100 shadow-sm product-card" style="cursor:pointer;" data-id="${p.id}">
                     <img src="${p.img}" class="card-img-top product-img-fixed" alt="${p.name}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${p.name}</h5>
                         <div class="mt-auto">
                             <div class="mb-2 fw-bold text-primary">RWF ${p.price.toLocaleString()}</div>
-                            <button class="btn btn-outline-primary w-100" onclick="addToCart(${p.id})">Add to Basket</button>
+                            <div class="input-group mb-2" style="max-width: 140px; margin: 0 auto;">
+                                <button class="btn btn-primary btn-sm" type="button" onclick="changeQtyInput(${p.id}, -1, event)">-</button>
+                                <input type="number" min="1" value="1" class="form-control form-control-sm text-center" id="qty-input-${p.id}" style="width: 40px;">
+                                <button class="btn btn-primary btn-sm" type="button" onclick="changeQtyInput(${p.id}, 1, event)">+</button>
+                            </div>
+                            <button class="btn btn-outline-primary w-100" onclick="addToCartWithQty(${p.id});event.stopPropagation();">Add to Basket</button>
                         </div>
                     </div>
                 </div>
             </div>
         `).join("") : '<div class="col-12 text-center text-muted">No products found.</div>';
+        // Add click event for product details modal
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const product = products.find(p => p.id == id);
+                if(product) {
+                    document.getElementById('productDetailsModalLabel').textContent = product.name;
+                    document.getElementById('productDetailsImg').src = product.img;
+                    var modal = new bootstrap.Modal(document.getElementById('productDetailsModal'));
+                    modal.show();
+                }
+            });
+        });
     }
-    function addToCart(id) {
+    function changeQtyInput(id, delta, event) {
+        event.stopPropagation();
+        var input = document.getElementById('qty-input-' + id);
+        var val = parseInt(input.value) || 1;
+        val += delta;
+        if (val < 1) val = 1;
+        input.value = val;
+    }
+    function addToCartWithQty(id) {
+        var input = document.getElementById('qty-input-' + id);
+        var qty = parseInt(input.value) || 1;
         let cart = JSON.parse(localStorage.getItem('cart') || '{}');
-        cart[id] = (cart[id] || 0) + 1;
+        cart[id] = (cart[id] || 0) + qty;
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
     }
@@ -254,8 +352,17 @@
         var cartCountElem = document.getElementById('cart-count');
         if(cartCountElem) cartCountElem.textContent = count;
     }
+    document.querySelectorAll('#category-filters button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('#category-filters button').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentCategory = this.getAttribute('data-category');
+            renderProducts(currentSearch);
+        });
+    });
     document.getElementById('product-search').addEventListener('input', function(e) {
-        renderProducts(e.target.value);
+        currentSearch = e.target.value;
+        renderProducts(currentSearch);
     });
     renderProducts();
     updateCartCount();
@@ -324,7 +431,22 @@
         orderMsg += `Name: ${name}%0APhone: ${phone}%0AAddress: ${address}`;
         const whatsappUrl = `https://wa.me/250788612171?text=${orderMsg}`;
         window.open(whatsappUrl, '_blank');
+        // Clear cart and show thank you modal
+        localStorage.removeItem('cart');
+        renderBasket();
+        updateCartCount();
+        var thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+        thankYouModal.show();
+    });
+    document.getElementById('clear-cart-btn').addEventListener('click', function() {
+        localStorage.removeItem('cart');
+        renderBasket();
+        updateCartCount();
     });
     </script>
+    <!-- Floating WhatsApp Support Button -->
+    <a href="https://wa.me/250788612171" target="_blank" id="whatsapp-support-btn" style="position:fixed;bottom:24px;right:24px;z-index:1050;display:flex;align-items:center;justify-content:center;width:56px;height:56px;background:#25d366;color:#fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:2rem;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html> 
