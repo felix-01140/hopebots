@@ -167,31 +167,18 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-light rounded p-4 p-md-5">
-                        <h3 class="mb-4">Send Us a Message</h3>
-                        <form id="contact-form">
+                        <h3 class="mb-4">Ask a Question</h3>
+                        <form id="ask-question-form">
                             <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <select name="service" class="form-select border-0" style="height: 55px;" required>
-                                        <option value="">Select A Service</option>
-                                        <option value="CCTV Installation">CCTV Installation</option>
-                                        <option value="Network Solutions">Network Solutions</option>
-                                        <option value="Computer Lab Setup">Computer Lab Setup</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="date" name="date" class="form-control border-0" style="height: 55px;" required>
+                                <div class="col-12">
+                                    <input type="text" name="phone" class="form-control border-0" placeholder="Your Phone Number" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control border-0" rows="4" placeholder="Tell us about your needs" required></textarea>
+                                    <textarea name="question" class="form-control border-0" rows="4" placeholder="Type your question here" required></textarea>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <div class="col-12 d-flex flex-column flex-md-row gap-2">
+                                    <button class="btn btn-primary w-100 py-3" type="button" id="ask-email-btn">Ask by Email</button>
+                                    <button class="btn btn-success w-100 py-3" type="button" id="ask-whatsapp-btn">Ask by WhatsApp</button>
                                 </div>
                             </div>
                         </form>
@@ -267,4 +254,40 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-        <!-- Template Javascript -->    <script src="js/main.js"></script>    <!-- EmailJS Library -->    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>    <!-- Forms Javascript -->    <script src="js/forms.js"></script>    <!-- Footer Newsletter Javascript -->    <script src="js/footer-newsletter.js"></script></body></html>
+        <!-- Template Javascript -->    <script src="js/main.js"></script>    <!-- EmailJS Library -->    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>    <!-- Forms Javascript -->    <script src="js/forms.js"></script>    <!-- Footer Newsletter Javascript -->    <script src="js/footer-newsletter.js"></script>
+    <script>
+        // Ask a Question form handlers
+        document.getElementById('ask-email-btn').addEventListener('click', function() {
+            const form = document.getElementById('ask-question-form');
+            const phone = form.elements['phone'].value;
+            const question = form.elements['question'].value;
+            if (!phone || !question) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            const subject = encodeURIComponent('Question from Website');
+            const body = encodeURIComponent(
+                'Phone: ' + phone + '\n' +
+                'Question: ' + question
+            );
+            window.location.href = `mailto:customers@alelabs.tech?subject=${subject}&body=${body}`;
+        });
+        document.getElementById('ask-whatsapp-btn').addEventListener('click', function() {
+            const form = document.getElementById('ask-question-form');
+            const phone = form.elements['phone'].value;
+            const question = form.elements['question'].value;
+            if (!phone || !question) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            const waPhone = '250788612171';
+            const message = encodeURIComponent(
+                'Question from Website\n' +
+                'Phone: ' + phone + '\n' +
+                'Question: ' + question
+            );
+            window.open(`https://wa.me/${waPhone}?text=${message}`, '_blank');
+        });
+    </script>
+</body>
+</html>
