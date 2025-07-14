@@ -53,6 +53,12 @@
             font-size: 0.9rem;
             color: #6c757d;
         }
+        .contact-quote-text {
+            font-size: 1.1rem;
+            color: #888;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 
@@ -136,8 +142,9 @@
                         </div>
                         <div class="p-4 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">Rwf</small>276,000
-                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;">/Setup</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>
+                                <span class="contact-quote-text">Contact for Quote</span>
+                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                             </h1>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>2 indoor & 2 outdoor cameras</span>
@@ -159,7 +166,7 @@
                                 <span>3 Months Support</span>
                                 <i class="fa fa-check text-success pt-1"></i>
                             </div>
-                            <a href="contact.html" class="btn btn-primary py-3 px-5 mt-4">Get Started</a>
+                            <a href="#custom-quote" class="btn btn-primary py-3 px-5 mt-4" onclick="scrollToQuote(event)">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -172,8 +179,9 @@
                         </div>
                         <div class="p-4 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">Rwf</small>180,000
-                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Setup</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>
+                                <span class="contact-quote-text">Contact for Quote</span>
+                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                             </h1>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>Basic Package</span>
@@ -195,7 +203,7 @@
                                 <span>6 Month Support</span>
                                 <i class="fa fa-check text-success pt-1"></i>
                             </div>
-                            <a href="contact.html" class="btn btn-primary py-3 px-5 mt-4">Get Started</a>
+                            <a href="#custom-quote" class="btn btn-primary py-3 px-5 mt-4" onclick="scrollToQuote(event)">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -208,8 +216,9 @@
                         </div>
                         <div class="p-4 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">Rwf</small>500,000
-                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Setup</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>
+                                <span class="contact-quote-text">Contact for Quote</span>
+                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                             </h1>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>Basic Package</span>
@@ -231,7 +240,7 @@
                                 <span>3 Months Support</span>
                                 <i class="fa fa-check text-success pt-1"></i>
                             </div>
-                            <a href="contact.html" class="btn btn-primary py-3 px-5 mt-4">Get Started</a>
+                            <a href="#custom-quote" class="btn btn-primary py-3 px-5 mt-4" onclick="scrollToQuote(event)">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -244,8 +253,9 @@
                         </div>
                         <div class="p-4 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">Rwf</small>Custom
-                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Project</small>
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>
+                                <span class="contact-quote-text">Contact for Quote</span>
+                                <small class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                             </h1>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>Network Extension</span>
@@ -306,8 +316,9 @@
                                 <div class="col-12">
                                     <textarea name="requirements" class="form-control border-0" rows="4" placeholder="Tell us about your requirements or specific service needs" required></textarea>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Request Quote</button>
+                                <div class="col-12 d-flex flex-column flex-md-row gap-2">
+                                    <button class="btn btn-primary w-100 py-3" type="button" id="quote-email-btn">Quote with Email</button>
+                                    <button class="btn btn-success w-100 py-3" type="button" id="quote-whatsapp-btn">Quote by WhatsApp</button>
                                 </div>
                             </div>
                         </form>
@@ -387,17 +398,13 @@
     
     <!-- Pricing Page Javascript -->
     <script>
-        // Initialize EmailJS
-        (function() {
-            emailjs.init("aTplpx662MEXiSJE5");
-        })();
+        // Remove EmailJS initialization and booking modal logic
 
         // Smooth scroll to quote section
         function scrollToQuote(event) {
             event.preventDefault();
             const quoteSection = document.getElementById('custom-quote');
             quoteSection.scrollIntoView({ behavior: 'smooth' });
-            
             // Pre-select "Other Services" in the dropdown
             const serviceSelect = document.querySelector('select[name="service"]');
             if (serviceSelect) {
@@ -405,59 +412,46 @@
             }
         }
 
-        // Handle modal package selection
-        $('#bookingModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var package = button.data('package');
-            var modal = $(this);
-            modal.find('#package').val(package + ' Package');
+        // Email and WhatsApp quote handlers
+        document.getElementById('quote-email-btn').addEventListener('click', function() {
+            const form = document.getElementById('pricing-contact-form');
+            const name = form.elements['name'].value;
+            const email = form.elements['email'].value;
+            const service = form.elements['service'].value;
+            const requirements = form.elements['requirements'].value;
+            if (!name || !email || !service || !requirements) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            const subject = encodeURIComponent('Service Quote Request: ' + service);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Service: ' + service + '\n' +
+                'Requirements: ' + requirements
+            );
+            window.location.href = `mailto:customers@alelabs.tech?subject=${subject}&body=${body}`;
         });
 
-        // Handle form submission
-        document.getElementById('service-booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-
-            const templateParams = {
-                to_email: document.getElementById('email').value,
-                to_name: document.getElementById('name').value,
-                subject: 'Service Booking Confirmation',
-                message: `Thank you for booking our ${document.getElementById('package').value}!\n\n` +
-                        `Booking Details:\n` +
-                        `Name: ${document.getElementById('name').value}\n` +
-                        `Phone: ${document.getElementById('phone').value}\n` +
-                        `Date: ${document.getElementById('date').value}\n` +
-                        `Additional Requirements: ${document.getElementById('message').value}\n\n` +
-                        `We will contact you shortly to confirm your booking.`,
-                type: 'booking_confirmation'
-            };
-
-            const adminParams = {
-                to_email: 'customers@alelabs.tech',
-                subject: 'New Service Booking',
-                message: `New booking received:\n\n` +
-                        `Package: ${document.getElementById('package').value}\n` +
-                        `Name: ${document.getElementById('name').value}\n` +
-                        `Email: ${document.getElementById('email').value}\n` +
-                        `Phone: ${document.getElementById('phone').value}\n` +
-                        `Date: ${document.getElementById('date').value}\n` +
-                        `Additional Requirements: ${document.getElementById('message').value}`,
-                type: 'admin_notification'
-            };
-
-            emailjs.send("aTplpx662MEXiSJE5", "template_id", templateParams, adminParams)
-                .then(function(response) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Request Sent';
-                    // Optionally, you can show a success message to the user
-                }, function(error) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Request Error';
-                    // Optionally, you can show an error message to the user
-                });
+        document.getElementById('quote-whatsapp-btn').addEventListener('click', function() {
+            const form = document.getElementById('pricing-contact-form');
+            const name = form.elements['name'].value;
+            const email = form.elements['email'].value;
+            const service = form.elements['service'].value;
+            const requirements = form.elements['requirements'].value;
+            if (!name || !email || !service || !requirements) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            const phone = '250788612171'; // Your WhatsApp number in international format, no +
+            const message = encodeURIComponent(
+                'Service Quote Request\n' +
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Service: ' + service + '\n' +
+                'Requirements: ' + requirements
+            );
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         });
     </script>
 </body>
