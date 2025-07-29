@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Alelabs in Education</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Alelabs Education Services: Coding, Robotics, Educational Websites, MIS" name="description">
+    <link href="img/logo.jpg" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .hero-section {
+            background: #ffffff;
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a73e8;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+        .service-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(60,64,67,0.08);
+            padding: 32px 24px;
+            margin-bottom: 32px;
+            transition: box-shadow 0.2s;
+            border: 1px solid #e0e0e0;
+        }
+        .service-card:hover {
+            box-shadow: 0 4px 24px rgba(60,64,67,0.16);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #1a73e8;
+            margin-bottom: 16px;
+        }
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 12px;
+        }
+        .service-desc {
+            color: #555;
+            font-size: 1.05rem;
+        }
+        .contact-quote-text {
+            font-size: 1.1rem;
+            color: #888;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        .education-showcase-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(60,64,67,0.1);
+            padding: 32px 24px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        .education-showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(60,64,67,0.15);
+        }
+        .education-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .education-image-wrapper img {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .education-showcase-card:hover .education-image-wrapper img {
+            transform: scale(1.05);
+        }
+        .education-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a73e8;
+            margin-bottom: 16px;
+        }
+        .education-content p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .education-features {
+            margin-top: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        .feature-item i {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-white d-none d-lg-block">
+        <div class="row align-items-center top-bar">
+            <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                <a href="index.html" class="navbar-brand m-0 p-0">
+                    <h1 class="text-primary m-0">Alelabs.tech</h1>
+                </a>
+            </div>
+            <div class="col-lg-8 col-md-12 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                    <p class="m-0">Gisozi, Gasabo, RWANDA</p>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <i class="fa fa-phone-alt text-primary me-2"></i>
+                    <p class="m-0">+250 788 612171</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
+            <a href="index.html" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+                <h1 class="text-primary m-0">Alelabs Kigali</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav me-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="service.html" class="nav-item nav-link">Our Services</a>
+                    <a href="products.html" class="nav-item nav-link">Products</a>
+                    <a href="pricing.html" class="nav-item nav-link">Pricing</a>
+                    <a href="guidelines.html" class="nav-item nav-link">Guidelines</a>
+                    <a href="education.html" class="nav-item nav-link active">Education</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
+                        <i class="fa fa-phone-alt text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <p class="mb-1 text-white">Call Us Now</p>
+                        <h5 class="m-0 text-secondary">+250 788 612171</h5>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Education Showcase Section Start -->
+    <div class="container-xxl py-5 bg-white">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3">Our Education Solutions in Action</h1>
+                <p class="mb-5">See how we're transforming education through technology and innovation.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Robotics Training -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="education-showcase-card h-100">
+                        <div class="education-image-wrapper mb-4">
+                            <img src="img/robots1.jpg" alt="Robotics Training" class="img-fluid rounded shadow">
+                        </div>
+                        <div class="education-content">
+                            <h4 class="text-primary mb-3">Robotics & Coding Training</h4>
+                            <p class="text-muted mb-3">Our hands-on robotics workshops engage students in real-world problem solving. Students learn to build, program, and control robots while developing critical thinking and teamwork skills.</p>
+                            <div class="education-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Python & Scratch Programming</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Robot Assembly & Control</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Competition Preparation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Educational Websites -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="education-showcase-card h-100">
+                        <div class="education-image-wrapper mb-4">
+                            <img src="img/eduweb.png" alt="Educational Website Development" class="img-fluid rounded shadow">
+                        </div>
+                        <div class="education-content">
+                            <h4 class="text-primary mb-3">Educational Website Development</h4>
+                            <p class="text-muted mb-3">We create modern, responsive websites specifically designed for educational institutions. Our websites enhance communication between schools, students, and parents.</p>
+                            <div class="education-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Responsive Design</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Student Portals</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Parent Communication Tools</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Management Information Systems -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="education-showcase-card h-100">
+                        <div class="education-image-wrapper mb-4">
+                            <img src="img/webdev.png" alt="Management Information Systems" class="img-fluid rounded shadow">
+                        </div>
+                        <div class="education-content">
+                            <h4 class="text-primary mb-3">Management Information Systems</h4>
+                            <p class="text-muted mb-3">Our custom MIS solutions streamline school administration, from student records to financial management, making educational institutions more efficient and organized.</p>
+                            <div class="education-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Student Records Management</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Financial Tracking</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Administrative Automation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Education Showcase Section End -->
+
+
+    <!-- Contact/Quote Section Start -->
+    <div id="education-quote" class="container-xxl py-5 bg-white">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3">Request a Demo or Quote</h1>
+                <p class="mb-4">Contact us for a personalized education solution or to schedule a demo for your school or institution.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white rounded p-5 border">
+                        <form id="education-contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12">
+                                    <select name="service" class="form-select border-0" style="height: 55px;" required>
+                                        <option value="">Select a Service</option>
+                                        <option value="Coding & Robotics Training">Coding & Robotics Training</option>
+                                        <option value="Educational Website">Educational Website</option>
+                                        <option value="Management Information System">Management Information System</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="requirements" class="form-control border-0" rows="4" placeholder="Tell us about your requirements or request a demo" required></textarea>
+                                </div>
+                                <div class="col-12 d-flex flex-column flex-md-row gap-2">
+                                    <button class="btn btn-primary w-100 py-3" type="button" id="edu-quote-email-btn">Quote with Email</button>
+                                    <button class="btn btn-success w-100 py-3" type="button" id="edu-quote-whatsapp-btn">Quote by WhatsApp</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact/Quote Section End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Gisozi Gasabo, Kigali, RWANDA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+250 788 612171</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>customers@alelabs.tech</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Opening Hours</h4>
+                    <h6 class="text-light">Monday - Sunday:</h6>
+                    <p class="mb-4">08.00 AM - 07.00 PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Education Services</h4>
+                    <a class="btn btn-link" href="#">Coding & Robotics Training</a>
+                    <a class="btn btn-link" href="#">Educational Websites</a>
+                    <a class="btn btn-link" href="#">Management Information Systems</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="products.html">Products</a>
+                    <a class="btn btn-link" href="pricing.html">Pricing</a>
+                    <a class="btn btn-link" href="guidelines.html">Guidelines</a>
+                    <a class="btn btn-link" href="education.html">Education</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Alelabs | Empowering Education with Technology.</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a class="border-bottom" href="#">Alelabs.tech team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Email and WhatsApp quote handlers for education page
+        document.getElementById('edu-quote-email-btn').addEventListener('click', function() {
+            const form = document.getElementById('education-contact-form');
+            const name = form.elements['name'].value;
+            const email = form.elements['email'].value;
+            const service = form.elements['service'].value;
+            const requirements = form.elements['requirements'].value;
+            if (!name || !email || !service || !requirements) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            const subject = encodeURIComponent('Education Service Quote Request: ' + service);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Service: ' + service + '\n' +
+                'Requirements: ' + requirements
+            );
+            window.location.href = `mailto:customers@alelabs.tech?subject=${subject}&body=${body}`;
+        });
+        document.getElementById('edu-quote-whatsapp-btn').addEventListener('click', function() {
+            const form = document.getElementById('education-contact-form');
+            const name = form.elements['name'].value;
+            const email = form.elements['email'].value;
+            const service = form.elements['service'].value;
+            const requirements = form.elements['requirements'].value;
+            if (!name || !email || !service || !requirements) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            const phone = '250788612171';
+            const message = encodeURIComponent(
+                'Education Service Quote Request\n' +
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Service: ' + service + '\n' +
+                'Requirements: ' + requirements
+            );
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        });
+    </script>
+</body>
+</html> 
