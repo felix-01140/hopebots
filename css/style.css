@@ -159,6 +159,15 @@
     border-left: 15px solid #FFFFFF;
 }
 
+.header-carousel .owl-carousel-item {
+    height: 600px;
+}
+
+.header-carousel .owl-carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .header-carousel .container::before,
 .header-carousel .container::after,
 .page-header .container::before,
